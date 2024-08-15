@@ -1,0 +1,55 @@
+body{
+    display: grid;
+    place-items: center;
+    background-color: black;
+    margin-top: 30px;
+    font-family: cursive;
+}
+
+img{
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 8px;
+}
+
+h1{
+    font-size: 21px;
+}
+
+h2{
+    font-size: 18px;
+}
+
+div{
+    margin-top: 20px;
+}
+
+.container {
+    width: 200px;
+    color: aliceblue;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px ;
+    box-shadow: 1px 0px 9px 0px white;
+}
+
+button{
+    cursor: pointer;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
+    border-radius: 3px;
+    color: rgba(187, 199, 21, 0.664);
+}
+
+#disponible{
+    background-color: green;
+    border-style: none;
+}
+#pendiente{
+    background-color: yellow;
+    border-style: none;
+}
+#vendido{
+    background-color: red;
+    border-style: none;
+}
