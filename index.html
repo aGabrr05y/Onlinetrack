@@ -7,27 +7,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1 id="toggleVerde">Verde</h1>
+    <div id="verdeGroup"></div>
+    
+        <h1 id="toggleAmarillo"> Amarillo</h1>
+        <div id="amarilloGroup"></div>
+
+    <h1 id="toggleRojo">Rojo </h1>
+    <div id="rojoGroup"></div>
+
+
     <div class="container">
-        <img src="Anime Guys Japanese Writing Dragon Graphic Tee.jpg" alt="Foto de ropa">
+        <img src="Anime Guys Japanese Writing Dragon Graphic Tee.jpg" alt="Foto de ropa" class="expandable-image">
         <h1>Disponibilidad: <br>
-        <button id="disponible">D</button> 
-        <button id="pendiente">P</button> 
-        <button id="vendido">V</button>
+            <button id="disponible">D</button> 
+            <button id="pendiente">P</button> 
+            <button id="vendido">V</button>
         </h1>
         <h2>Precio Base: Q120 <br><span> Precio Minimo: Q90</span></h2>
-        <input type="text" placeholder="Vendido a ...">
+        <input type="text" placeholder="Vendido a ..." class="comprador">
+        <button class="enviar-precio">Enviar</button>
+        <h2 class="precio-vendido">Precio Vendido: Q<span>0</span></h2>
+        <h6 class="fecha-vendido">Fecha y Hora: <span>N/A</span></h6>
     </div>
 
     <div class="container">
-        <img src="TW Bar Pants.jpg" alt="Foto de ropa">
+        <img src="TW Bar Pants.jpg" alt="Foto de ropa" class="expandable-image">
         <h1>Disponibilidad: <br>
-        <button id="disponible">D</button> 
-        <button id="pendiente">P</button> 
-        <button id="vendido">V</button>
+            <button id="disponible">D</button> 
+            <button id="pendiente">P</button> 
+            <button id="vendido">V</button>
         </h1>
-        <h2>Precio Base: Q120 <br><span> Precio Minimo:Q90</span></h2>
-        <input type="text" placeholder="Vendido a ...">
+        <h2>Precio Base: Q120 <br><span> Precio Minimo: Q90</span></h2>
+        <input type="text" placeholder="Vendido a ..." class="comprador">
+        <button class="enviar-precio">Enviar</button>
+        <h2 class="precio-vendido">Precio Vendido: Q<span>0</span></h2>
+        <h6 class="fecha-vendido">Fecha y Hora: <span>N/A</span></h6>
     </div>
+    
+    <div id="overlay"></div>
     <script src="index.js"></script>
 </body>
 </html>
