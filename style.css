@@ -1,82 +1,70 @@
-body {
+body{
     display: grid;
     place-items: center;
     background-color: black;
-    margin: 0;
-    padding: 10px;
+    margin-top: 30px;
     font-family: cursive;
 }
 
-img {
-    width: 100%;
-    margin: 0 auto;
+img{
+    width: 80%;
+    margin-left: 10%;
     border-radius: 8px;
 }
 
-h1 {
-    font-size: 18px;
+h1{
+    font-size: 21px;
     color: white;
-    text-align: center;
 }
 
-h2 {
-    font-size: 16px;
-    text-align: center;
+h2{
+    font-size: 18px;
 }
 
-div {
+div{
     margin-top: 20px;
 }
 
 .container {
-    width: 100%;
-    max-width: 300px;
+    width: 200px;
     color: aliceblue;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px ;
     box-shadow: 1px 0px 9px 0px white;
-    margin-bottom: 20px;
 }
 
-button {
+button{
     cursor: pointer;
-    font-size: 20px;
-    margin: 5px 10px 5px 0;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
     border-radius: 3px;
     color: rgba(187, 199, 21, 0.664);
 }
 
-#disponible {
+#disponible{
     background-color: green;
     border-style: none;
 }
-
-#pendiente {
+#pendiente{
     background-color: yellow;
     border-style: none;
 }
-
-#vendido {
+#vendido{
     background-color: red;
     border-style: none;
 }
 
-.enviar-precio {
-    font-size: 14px;
+.enviar-precio{
+    font-size: 15px;
     color: black;
-    margin-top: 10px;
-    width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
 }
 
-.fecha-vendido {
-    font-size: 10px;
-    text-align: center;
+.fecha-vendido{
+    font-size: 7px;
 }
 
-/* Overlay styles */
+/* Add these styles to your CSS file */
 #overlay {
     position: fixed;
     top: 0;
@@ -91,8 +79,8 @@ button {
 }
 
 #overlay img {
-    height: 90%;
-    width: auto;
+    height: 90%; /* Set height to 90% */
+    width: auto; /* Width adjusts automatically */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -107,25 +95,24 @@ button {
     z-index: 1000;
 }
 
-/* Button styles for group toggling */
-#toggleRojo, #toggleVerde, #toggleAmarillo {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
-    padding: 10px;
+
+#toggleRojo{
+    background-color: rgba(255, 0, 0, 0.301);
+    padding: 10px 40px;
     border-radius: 6px;
     cursor: pointer;
-    text-align: center;
 }
 
-#toggleRojo {
-    background-color: rgba(255, 0, 0, 0.301);
-}
-
-#toggleVerde {
+#toggleVerde{
     background-color: rgba(0, 128, 0, 0.253);
+    padding: 10px 40px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-#toggleAmarillo {
+#toggleAmarillo{
     background-color: rgba(255, 255, 0, 0.315);
+    padding: 10px 40px;
+    border-radius: 6px;
+    cursor: pointer;
 }
