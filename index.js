@@ -2,29 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const containers = document.querySelectorAll(".container");
     const overlay = document.getElementById("overlay");
 
-    // Secciones para agrupar los contenedores según el estado
-    const rojoGroup = document.getElementById("rojoGroup");
-    const amarilloGroup = document.getElementById("amarilloGroup");
-    const verdeGroup = document.getElementById("verdeGroup");
-
-    // Botones para mostrar/ocultar los grupos
-    const toggleRojoBtn = document.getElementById("toggleRojo");
-    const toggleAmarilloBtn = document.getElementById("toggleAmarillo");
-    const toggleVerdeBtn = document.getElementById("toggleVerde");
-
-    // Function to expand image on click
+    // Expandir imagen al hacer clic
     function expandImage(event) {
         const imgSrc = event.target.src;
         overlay.innerHTML = `<img src="${imgSrc}">`;
         overlay.style.display = "flex";
     }
 
-    // Close expanded image when overlay is clicked
+    // Cerrar la imagen expandida al hacer clic en el overlay
     overlay.addEventListener("click", () => {
         overlay.style.display = "none";
     });
 
-    containers.forEach((container) => {
+    containers.forEach((container, index) => {
         const image = container.querySelector(".expandable-image");
         image.addEventListener("click", expandImage);
 
@@ -46,17 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const vendidoBtn = container.querySelector("#vendido");
 
         disponibleBtn.addEventListener("click", () => {
-            actualizarColorYGrupo(container, "disponible");
+            actualizarColor(container, "disponible");
             guardarEstado();
         });
 
         pendienteBtn.addEventListener("click", () => {
-            actualizarColorYGrupo(container, "pendiente");
+            actualizarColor(container, "pendiente");
             guardarEstado();
         });
 
         vendidoBtn.addEventListener("click", () => {
-            actualizarColorYGrupo(container, "vendido");
+            actualizarColor(container, "vendido");
             guardarEstado();
         });
     });
@@ -79,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (estadosGuardados) {
             containers.forEach((container, index) => {
                 const { estado, comprador, precioVendido, fechaVendido } = estadosGuardados[index];
-                actualizarColorYGrupo(container, estado);
+                actualizarColor(container, estado);
                 container.querySelector(".comprador").value = comprador || "";
                 container.querySelector(".precio-vendido span").textContent = precioVendido || "0";
                 container.querySelector(".fecha-vendido span").textContent = fechaVendido || "N/A";
@@ -87,49 +77,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Función para actualizar el color y mover el contenedor al grupo adecuado
-    function actualizarColorYGrupo(container, estado) {
+    function actualizarColor(container, estado) {
         container.dataset.estado = estado;
         switch (estado) {
             case "disponible":
                 container.style.backgroundColor = "rgba(0, 153, 51, 0.432)";
-                verdeGroup.appendChild(container);
                 break;
             case "pendiente":
                 container.style.backgroundColor = "rgba(187, 199, 21, 0.664)";
-                amarilloGroup.appendChild(container);
                 break;
             case "vendido":
                 container.style.backgroundColor = "rgba(153, 0, 0, 0.582)";
-                rojoGroup.appendChild(container);
                 break;
         }
+
+        // Mover contenedor al grupo correspondiente
+        const grupos = {
+            "disponible": document.getElementById("grupoVerde"),
+            "pendiente": document.getElementById("grupoAmarillo"),
+            "vendido": document.getElementById("grupoRojo")
+        };
+        grupos[estado].appendChild(container);
     }
 
-    // Funciones para mostrar/ocultar grupos
-    toggleRojoBtn.addEventListener("click", () => {
-        if (rojoGroup.style.display === "none") {
-            rojoGroup.style.display = "block";
-        } else {
-            rojoGroup.style.display = "none";
-        }
+    // Manejar la visibilidad de los grupos
+    document.getElementById("toggleRojo").addEventListener("click", () => {
+        toggleVisibility("grupoRojo");
+    });
+    document.getElementById("toggleVerde").addEventListener("click", () => {
+        toggleVisibility("grupoVerde");
+    });
+    document.getElementById("toggleAmarillo").addEventListener("click", () => {
+        toggleVisibility("grupoAmarillo");
     });
 
-    toggleAmarilloBtn.addEventListener("click", () => {
-        if (amarilloGroup.style.display === "none") {
-            amarilloGroup.style.display = "block";
-        } else {
-            amarilloGroup.style.display = "none";
-        }
-    });
-
-    toggleVerdeBtn.addEventListener("click", () => {
-        if (verdeGroup.style.display === "none") {
-            verdeGroup.style.display = "block";
-        } else {
-            verdeGroup.style.display = "none";
-        }
-    });
+    function toggleVisibility(groupId) {
+        const group = document.getElementById(groupId);
+        group.style.display = group.style.display === "none" ? "block" : "none";
+    }
 });
-
-
